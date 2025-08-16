@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Phase 3: Advanced Level</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #34495e;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        .example {
+            background: #e8f5e8;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .demo-video {
+            width: 300px;
+            height: 200px;
+            background: #000;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        .demo-canvas {
+            border: 2px solid #3498db;
+            border-radius: 8px;
+        }
+        .person-card {
+            background: #f1f2f6;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #9b59b6;
+        }
+        .tip {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .tip::before {
+            content: "💡 ";
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HTML Phase 3: Advanced Level Explained</h1>
+
+        <h2>1. Advanced Attributes and Meta Tags</h2>
+        
+        <h3>Meta Tags for SEO (Search Engine Optimization)</h3>
+        <p>These tags help search engines understand your page better and improve how your site appears in search results and social media:</p>
+        
+        <div class="code-block">
+&lt;!-- Basic SEO meta tags --&gt;
+&lt;meta name="description" content="Learn advanced HTML techniques including meta tags, multimedia, and web components"&gt;
+&lt;meta name="keywords" content="HTML, advanced, web development, SEO"&gt;
+&lt;meta name="author" content="Your Name"&gt;
+
+&lt;!-- Open Graph tags for social media sharing --&gt;
+&lt;meta property="og:title" content="Advanced HTML Guide"&gt;
+&lt;meta property="og:description" content="Master advanced HTML techniques"&gt;
+&lt;meta property="og:image" content="https://example.com/preview-image.jpg"&gt;
+&lt;meta property="og:url" content="https://example.com/page"&gt;
+&lt;meta property="og:type" content="article"&gt;
+
+&lt;!-- Twitter Card tags --&gt;
+&lt;meta name="twitter:card" content="summary_large_image"&gt;
+&lt;meta name="twitter:title" content="Advanced HTML Guide"&gt;
+&lt;meta name="twitter:description" content="Master advanced HTML techniques"&gt;
+&lt;meta name="twitter:image" content="https://example.com/preview-image.jpg"&gt;
+        </div>
+
+        <div class="tip">
+            <strong>Why this matters:</strong> When someone shares your page on Facebook, Twitter, or searches for it on Google, these meta tags control what information is displayed.
+        </div>
+
+        <h3>Custom Data Attributes</h3>
+        <p>Use <code>data-*</code> attributes to store custom data that JavaScript can access:</p>
+        
+        <div class="code-block">
+&lt;div class="product" 
+     data-product-id="12345" 
+     data-price="29.99" 
+     data-category="electronics"
+     data-in-stock="true"&gt;
+    Smartphone
+&lt;/div&gt;
+
+&lt;button onclick="showProductInfo(this)" 
+        data-product="laptop" 
+        data-specs='{"ram": "16GB", "storage": "512GB"}'&gt;
+    View Details
+&lt;/button&gt;
+        </div>
+
+        <div class="example">
+            <strong>Real-world example:</strong> E-commerce sites use data attributes to store product information that shopping cart JavaScript can read without making server requests.
+        </div>
+
+        <h2>2. Multimedia Elements</h2>
+
+        <h3>Video Element with Multiple Sources</h3>
+        <p>The video element supports multiple formats for browser compatibility:</p>
+
+        <div class="code-block">
+&lt;video class="demo-video" controls poster="video-thumbnail.jpg"&gt;
+    &lt;source src="movie.mp4" type="video/mp4"&gt;
+    &lt;source src="movie.webm" type="video/webm"&gt;
+    &lt;source src="movie.ogg" type="video/ogg"&gt;
+    &lt;track src="subtitles-en.vtt" kind="subtitles" srclang="en" label="English"&gt;
+    &lt;track src="subtitles-es.vtt" kind="subtitles" srclang="es" label="Español"&gt;
+    Your browser doesn't support HTML5 video.
+&lt;/video&gt;
+        </div>
+
+        <video class="demo-video" controls>
+            <source src="data:video/mp4;base64," type="video/mp4">
+            <p>Your browser doesn't support HTML5 video. Here's a placeholder instead.</p>
+        </video>
+
+        <div class="tip">
+            <strong>Pro tip:</strong> Always include multiple formats (MP4, WebM, OGG) and a fallback message for older browsers. The <code>poster</code> attribute shows a thumbnail before the video plays.
+        </div>
+
+        <h3>Audio Element</h3>
+        <div class="code-block">
+&lt;audio controls preload="metadata"&gt;
+    &lt;source src="podcast.mp3" type="audio/mpeg"&gt;
+    &lt;source src="podcast.ogg" type="audio/ogg"&gt;
+    &lt;source src="podcast.wav" type="audio/wav"&gt;
+    Your browser doesn't support HTML5 audio.
+&lt;/audio&gt;
+        </div>
+
+        <h3>Canvas Element for Drawing</h3>
+        <p>Canvas allows you to draw graphics, animations, and interactive visualizations:</p>
+
+        <div class="code-block">
+&lt;canvas id="myCanvas" width="400" height="200" class="demo-canvas"&gt;
+    Your browser doesn't support Canvas.
+&lt;/canvas&gt;
+
+&lt;script&gt;
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+
+// Draw a gradient rectangle
+const gradient = ctx.createLinearGradient(0, 0, 400, 0);
+gradient.addColorStop(0, '#3498db');
+gradient.addColorStop(1, '#9b59b6');
+ctx.fillStyle = gradient;
+ctx.fillRect(0, 0, 400, 200);
+
+// Draw text
+ctx.fillStyle = 'white';
+ctx.font = '24px Arial';
+ctx.textAlign = 'center';
+ctx.fillText('HTML5 Canvas Demo', 200, 100);
+&lt;/script&gt;
+        </div>
+
+        <canvas id="demoCanvas" width="400" height="200" class="demo-canvas">
+            Your browser doesn't support Canvas.
+        </canvas>
+
+        <h3>SVG (Scalable Vector Graphics)</h3>
+        <p>SVG creates scalable vector graphics directly in HTML:</p>
+
+        <div class="code-block">
+&lt;svg width="300" height="150" viewBox="0 0 300 150"&gt;
+    &lt;!-- Gradient definition --&gt;
+    &lt;defs&gt;
+        &lt;linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%"&gt;
+            &lt;stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" /&gt;
+            &lt;stop offset="100%" style="stop-color:#f39c12;stop-opacity:1" /&gt;
+        &lt;/linearGradient&gt;
+    &lt;/defs&gt;
+    
+    &lt;!-- Shapes --&gt;
+    &lt;rect x="10" y="10" width="100" height="80" fill="url(#grad1)" rx="10"/&gt;
+    &lt;circle cx="180" cy="50" r="30" fill="#3498db" opacity="0.8"/&gt;
+    &lt;polygon points="220,20 260,80 180,80" fill="#2ecc71"/&gt;
+    &lt;text x="150" y="130" font-family="Arial" font-size="18" text-anchor="middle" fill="#2c3e50"&gt;
+        SVG Graphics
+    &lt;/text&gt;
+&lt;/svg&gt;
+        </div>
+
+        <svg width="300" height="150" viewBox="0 0 300 150" style="border: 2px solid #ddd; border-radius: 8px;">
+            <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#f39c12;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <rect x="10" y="10" width="100" height="80" fill="url(#grad1)" rx="10"/>
+            <circle cx="180" cy="50" r="30" fill="#3498db" opacity="0.8"/>
+            <polygon points="220,20 260,80 180,80" fill="#2ecc71"/>
+            <text x="150" y="130" font-family="Arial" font-size="18" text-anchor="middle" fill="#2c3e50">
+                SVG Graphics
+            </text>
+        </svg>
+
+        <h2>3. Web Components and Templates</h2>
+
+        <h3>HTML Templates</h3>
+        <p>Templates define reusable HTML structures that aren't rendered until activated by JavaScript:</p>
+
+        <div class="code-block">
+&lt;template id="product-template"&gt;
+    &lt;style&gt;
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .product-title { color: #2c3e50; font-size: 1.2em; }
+        .product-price { color: #e74c3c; font-weight: bold; }
+    &lt;/style&gt;
+    &lt;div class="product-card"&gt;
+        &lt;h3 class="product-title"&gt;&lt;/h3&gt;
+        &lt;p class="product-description"&gt;&lt;/p&gt;
+        &lt;span class="product-price"&gt;&lt;/span&gt;
+        &lt;button&gt;Add to Cart&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;div id="product-container"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+function createProduct(title, description, price) {
+    const template = document.getElementById('product-template');
+    const clone = template.content.cloneNode(true);
+    
+    clone.querySelector('.product-title').textContent = title;
+    clone.querySelector('.product-description').textContent = description;
+    clone.querySelector('.product-price').textContent = '$' + price;
+    
+    document.getElementById('product-container').appendChild(clone);
+}
+
+// Create products
+createProduct('Laptop', 'High-performance laptop', '999.99');
+createProduct('Mouse', 'Wireless gaming mouse', '49.99');
+&lt;/script&gt;
+        </div>
+
+        <template id="product-template">
+            <style>
+                .product-card {
+                    border: 1px solid #ddd;
+                    padding: 20px;
+                    margin: 10px;
+                    border-radius: 8px;
+                    background: white;
+                    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                }
+                .product-title { color: #2c3e50; font-size: 1.2em; }
+                .product-price { color: #e74c3c; font-weight: bold; }
+            </style>
+            <div class="product-card">
+                <h3 class="product-title"></h3>
+                <p class="product-description"></p>
+                <span class="product-price"></span>
+                <button>Add to Cart</button>
+            </div>
+        </template>
+
+        <div id="product-container"></div>
+
+        <h2>4. Microdata and Schema.org</h2>
+        <p>Microdata provides semantic meaning to content, helping search engines understand your data:</p>
+
+        <div class="code-block">
+&lt;div itemscope itemtype="http://schema.org/Person" class="person-card"&gt;
+    &lt;img itemprop="image" src="person-photo.jpg" alt="Profile photo"&gt;
+    &lt;h3 itemprop="name"&gt;Dr. Jane Smith&lt;/h3&gt;
+    &lt;p itemprop="jobTitle"&gt;Senior Software Engineer&lt;/p&gt;
+    &lt;p&gt;Works at &lt;span itemprop="worksFor"&gt;Tech Company Inc.&lt;/span&gt;&lt;/p&gt;
+    &lt;p&gt;Email: &lt;a itemprop="email" href="mailto:jane@example.com"&gt;jane@example.com&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;Phone: &lt;span itemprop="telephone"&gt;(555) 123-4567&lt;/span&gt;&lt;/p&gt;
+    &lt;div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"&gt;
+        &lt;span itemprop="streetAddress"&gt;123 Main St&lt;/span&gt;,
+        &lt;span itemprop="addressLocality"&gt;San Francisco&lt;/span&gt;,
+        &lt;span itemprop="addressRegion"&gt;CA&lt;/span&gt;
+        &lt;span itemprop="postalCode"&gt;94105&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </div>
+
+        <div itemscope itemtype="http://schema.org/Person" class="person-card">
+            <div style="width: 60px; height: 60px; background: #3498db; border-radius: 50%; display: inline-block; margin-right: 15px; vertical-align: top;"></div>
+            <div style="display: inline-block; vertical-align: top;">
+                <h3 itemprop="name">Dr. Jane Smith</h3>
+                <p itemprop="jobTitle">Senior Software Engineer</p>
+                <p>Works at <span itemprop="worksFor">Tech Company Inc.</span></p>
+                <p>Email: <a itemprop="email" href="mailto:jane@example.com">jane@example.com</a></p>
+                <p>Phone: <span itemprop="telephone">(555) 123-4567</span></p>
+                <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                    <span itemprop="streetAddress">123 Main St</span>,
+                    <span itemprop="addressLocality">San Francisco</span>,
+                    <span itemprop="addressRegion">CA</span>
+                    <span itemprop="postalCode">94105</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tip">
+            <strong>Benefits of Microdata:</strong> Search engines can create rich snippets (enhanced search results), voice assistants can better understand your content, and data can be extracted programmatically.
+        </div>
+
+        <h2>5. When to Use These Advanced Features</h2>
+
+        <h3>Meta Tags - Use when:</h3>
+        <ul>
+            <li>Building any public website (essential for SEO)</li>
+            <li>Creating shareable content for social media</li>
+            <li>Building web applications that need good search visibility</li>
+        </ul>
+
+        <h3>Multimedia Elements - Use when:</h3>
+        <ul>
+            <li>Creating media-rich websites (portfolios, news sites, entertainment)</li>
+            <li>Building educational platforms with video content</li>
+            <li>Developing games or interactive applications (Canvas)</li>
+            <li>Creating scalable graphics and icons (SVG)</li>
+        </ul>
+
+        <h3>Web Components - Use when:</h3>
+        <ul>
+            <li>Building large applications with repeated UI patterns</li>
+            <li>Creating reusable component libraries</li>
+            <li>Dynamically generating content from data</li>
+        </ul>
+
+        <h3>Microdata - Use when:</h3>
+        <ul>
+            <li>Building business websites (contact info, products, services)</li>
+            <li>Creating content sites (articles, reviews, events)</li>
+            <li>Wanting better search engine visibility and rich snippets</li>
+        </ul>
+
+        <h2>Next Steps</h2>
+        <p>Practice these advanced concepts by:</p>
+        <ol>
+            <li><strong>Building a portfolio site</strong> - Use meta tags, multimedia, and microdata</li>
+            <li><strong>Creating an interactive game</strong> - Use Canvas and templates</li>
+            <li><strong>Building a media gallery</strong> - Combine video, audio, and SVG</li>
+            <li><strong>Making a business website</strong> - Implement all schema.org markup</li>
+        </ol>
+
+        <div class="tip">
+            <strong>Remember:</strong> These advanced features should enhance your content, not complicate it. Start simple and add complexity as needed for your specific use case.
+        </div>
+    </div>
+
+    <script>
+        // Canvas demo
+        const canvas = document.getElementById('demoCanvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            
+            // Draw gradient background
+            const gradient = ctx.createLinearGradient(0, 0, 400, 0);
+            gradient.addColorStop(0, '#3498db');
+            gradient.addColorStop(1, '#9b59b6');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 400, 200);
+            
+            // Draw text
+            ctx.fillStyle = 'white';
+            ctx.font = '24px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('HTML5 Canvas Demo', 200, 100);
+            
+            // Draw a circle
+            ctx.beginPath();
+            ctx.arc(100, 50, 20, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.fill();
+        }
+
+        // Template demo
+        function createProduct(title, description, price) {
+            const template = document.getElementById('product-template');
+            if (template) {
+                const clone = template.content.cloneNode(true);
+                
+                clone.querySelector('.product-title').textContent = title;
+                clone.querySelector('.product-description').textContent = description;
+                clone.querySelector('.product-price').textContent = '$' + price;
+                
+                document.getElementById('product-container').appendChild(clone);
+            }
+        }
+
+        // Create sample products
+        createProduct('Gaming Laptop', 'High-performance laptop for gaming and development', '1299.99');
+        createProduct('Wireless Mouse', 'Ergonomic wireless gaming mouse with RGB lighting', '79.99');
+    </script>
+</body>
+</html>
